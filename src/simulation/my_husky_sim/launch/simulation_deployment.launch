@@ -1,0 +1,80 @@
+<launch>
+    <arg name="robot_namespace" default="/"/>
+    <arg name="x" default="0.0"/>
+    <arg name="y" default="0.0"/>
+    <arg name="z" default="0.2"/>
+    <arg name="yaw" default="0.0"/>
+    <arg name="lidar_enabled" default="false"/>
+    <arg name="lidar_2_enabled" default="false"/>
+    <arg name="vlp_enabled" default="false"/>
+    <arg name="gps_enabled" default="true"/>
+    <arg name="sensor_arch" default="false"/>
+    <arg name="world_name" default="worlds/empty.world"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(arg world_name)"/> <!-- world_name is wrt GAZEBO_RESOURCE_PATH environment variable -->
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+
+    <!-- Load robot description -->
+    <param name="robot_description" command="$(find xacro)/xacro '$(find husky_description)/urdf/husky.urdf.xacro'
+                                                                    robot_namespace:=$(arg robot_namespace)
+                                                                    laser_enabled:=$(arg lidar_enabled)
+                                                                    laser_secondary_enabled:=$(arg lidar_2_enabled)
+                                                                    outdoornav_enabled:=$(arg gps_enabled)
+                                                                    sensor_arch:=$(arg sensor_arch)" />
+
+    <!-- Load controller configuration -->
+    <rosparam command="load" file="$(find husky_control)/config/control.yaml" />
+
+    <!-- Spawn controllers -->
+    <node name="base_controller_spawner" pkg="controller_manager" type="spawner"
+            args="husky_joint_publisher husky_velocity_controller"/>
+    <rosparam param="wheel_radius_multiplier" ns="husky_velocity_controller" subst_value="True">
+            $(optenv HUSKY_WHEEL_MULTIPLIER 1.0)
+    </rosparam>
+
+    <node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server" output="screen">
+        <param name="link_name" value="base_link" />
+    </node>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+    <!-- Spawn robot in gazebo -->
+    <node name="spawn_husky_model" pkg="gazebo_ros" type="spawn_model"
+        args="-x $(arg x)
+              -y $(arg y)
+              -z $(arg z)
+              -Y $(arg yaw)
+              -unpause
+              -urdf
+              -param robot_description
+              -model husky
+              -robot_namespace $(arg robot_namespace)" />
+
+    <!-- Start EKF for localization -->
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization"> 
+        <rosparam command="load" file="$(find my_husky_sim)/params/sim_ekf.yaml" />
+        <remap from="odometry/filtered" to="odometry/global" />
+    </node>
+
+    <!-- NavSat Transformation -->
+    <node name="navsat_transform_node" pkg="robot_localization" type="navsat_transform_node" output="screen" >
+        <rosparam command="load" file="$(find combine_data)/param/navsat.yaml" />
+
+        <!-- Subscriptions -->
+        <remap from="imu/data" to="/imu/data" />
+        <!-- <remap from="imu/data" to="/IMU" /> -->
+        <remap from="gps/fix" to="/navsat/fix" />
+        <remap from="odometry/filtered" to="odometry/global" />
+
+        <!-- Publications -->
+        <remap from="gps/filtered" to="gps/filtered" />
+        <remap from="odometry/gps" to="odometry/gps" />
+    </node>
+
+</launch>

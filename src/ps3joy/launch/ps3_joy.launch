@@ -1,0 +1,27 @@
+<launch>
+
+  <include file="$(find connect_node)/launch/connect_node.launch"/>
+
+  <node pkg="inverse_kinetic" type="inverse_kinetic" name="inverse_kinetic" required="true" output = "screen" > 
+    <param name="topic_velocities" value="topic_velocities"/>
+    <param name="cmd_vel" value="/cmd_vel"/>
+    <param name="left_wheel_velocity" type="int" value="0" />
+    <param name="right_wheel_velocity" type="int" value="0" />
+    <param name="v_max_motor" type="int" value="10000" />
+    <param name="pwm_max" type="int" value="255" />
+    <param name="steering_factor" type="double" value="71.2" />
+    <param name="linear_vel" type="double" value="0" />
+    <param name="angular_vel" type="double" value="0" />
+    <param name="wheels_distance" type="double" value="0.45" />
+    <param name="t_acceleration" type="double" value="1" />
+    <param name="t_decreasing" type="double" value="0.5" />
+  </node>
+
+  <node pkg="joy" type="joy_node" name="joy_node" required="true" output = "screen" />
+  <node pkg="ps3joy" type="ps3" name="ps3" required="true" output = "screen" >
+    <param name="command_vel" value="/cmd_vel"/>
+    <param name="linear_x" type="double" value="0.2" />
+    <param name="angular_z" type="double" value="0.3" />
+  </node>
+
+</launch>

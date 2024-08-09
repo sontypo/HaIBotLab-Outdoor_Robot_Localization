@@ -1,0 +1,16 @@
+<launch>
+
+  <node pkg="connect_node" type="connect_node" name="connect_node" required="true" output = "screen" > 
+    <param name="port" value="/dev/ttyUSB0"/>
+    <param name="topic_odom_front" value="odom_encoder/front"/>
+    <param name="topic_odom_rear" value="odom_encoder/rear"/>
+    <param name="fixed_frame_odom_front" value="odom_front"/>
+    <param name="fixed_frame_odom_rear" value="odom_rear"/>
+    <param name="topic_imu" value="IMU"/>
+    <param name="topic_velocities" value="topic_velocities"/>
+    <param name="wheel_radius" type="double" value="0.075" />
+    <param name="wheels_distance" type="double" value="0.45" />
+    <param name="pulses_per_revolution" type="double" value="500.0" />
+  </node>
+
+</launch>

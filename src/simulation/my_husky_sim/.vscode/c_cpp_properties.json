@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/saun/outDataSampling/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/saun/outDataSampling/src/duro_gps_driver/include/**",
+        "/home/saun/outDataSampling/src/microstrain_inertial/microstrain_inertial_driver/include/**",
+        "/home/saun/outDataSampling/src/my_husky_sim/include/**",
+        "/home/saun/outDataSampling/src/navigation/include/**",
+        "/home/saun/outDataSampling/src/ps3joy/include/**",
+        "/home/saun/outDataSampling/src/sick_scan-master/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
