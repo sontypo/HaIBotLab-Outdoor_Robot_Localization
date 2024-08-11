@@ -29,8 +29,8 @@ All the hardware equipments provided for the robot are listed in the table below
 ### Environment
 
 * Supported Operating System:
-  * Ubuntu 18.04 LTS (Bionic Beaver)^[1](https://releases.ubuntu.com/18.04/)
-  * Ubuntu 20.04 LTS (Focal Fossa)^[2](https://releases.ubuntu.com/focal/)
+  * Ubuntu 18.04 LTS (Bionic Beaver)[^1](https://releases.ubuntu.com/18.04/)
+  * Ubuntu 20.04 LTS (Focal Fossa)[^2](https://releases.ubuntu.com/focal/)
 * Software Libraries / Toolbox:
   * ROS1 Noetic[^3](https://wiki.ros.org/ROS/Installation)
   * Gazebo Classic[^4](https://classic.gazebosim.org/)
@@ -42,6 +42,7 @@ All the hardware equipments provided for the robot are listed in the table below
   This package is a collection of state estimation nodes, each of which is an implementation of a nonlinear state estimator for robots moving in 3D space. It contains two state estimation nodes, ekf_localization_node and ukf_localization_node. In addition, robot_localization provides navsat_transform_node, which aids in the integration of GPS data[^5](https://docs.ros.org/en/indigo/api/robot_localization/html/index.html#)
 
   To install the package:
+  
 '''
 sudo apt update
 sudo apt install ros-noetic-robot-localization
@@ -51,12 +52,14 @@ sudo apt install ros-noetic-robot-localization
   This package provides the simulation programs of Clearpath's Husky robot[^6](http://wiki.ros.org/ClearpathRobotics).
 
   To install the package:
+  
 '''
 sudo apt update
 sudo apt install ros-noetic-husky-simulator
 '''
 
 ## Repository Management
+
 
 src/
    ├── combine_data/
