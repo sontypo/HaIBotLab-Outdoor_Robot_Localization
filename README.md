@@ -43,24 +43,24 @@ All the hardware equipments provided for the robot are listed in the table below
 
   To install the package:
   
-'''bash
+```bash
 sudo apt update
 sudo apt install ros-noetic-robot-localization
-'''
+```
   
 * husky_simulator
   This package provides the simulation programs of Clearpath's Husky robot[^6](http://wiki.ros.org/ClearpathRobotics).
 
   To install the package:
   
-'''bash
+```bash
 sudo apt update
 sudo apt install ros-noetic-husky-simulator
-'''
+```
 
 ## Repository Management
 
-'''bash
+```bash
 src/
    ├── combine_data/
    ├── connect_node/
@@ -78,4 +78,4 @@ src/
    │   ├── cpr_gazebo/
    │   └── my_husky_sim/
    └── ...
-'''
+```
