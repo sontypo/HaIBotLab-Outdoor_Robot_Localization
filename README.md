@@ -10,7 +10,7 @@ This workspace provides the necessary ROS packages to operate the outdoor skid-s
   * [Installing Packages](installing-packages)
 * [Repository Management](repository-management)
 * [Run Instructions](run-instructions)
-* [Sources](sources)
+* [Resources](resources)
 
 ## Robotic Accessories
 
@@ -43,39 +43,61 @@ All the hardware equipments provided for the robot are listed in the table below
 
   To install the package:
   
-```bash
-sudo apt update
-sudo apt install ros-noetic-robot-localization
-```
+  ```bash
+  sudo apt update
+  sudo apt install ros-noetic-robot-localization
+  ```
   
 * husky_simulator
   This package provides the simulation programs of Clearpath's Husky robot[^6](http://wiki.ros.org/ClearpathRobotics).
 
   To install the package:
   
-```bash
-sudo apt update
-sudo apt install ros-noetic-husky-simulator
-```
+  ```bash
+  sudo apt update
+  sudo apt install ros-noetic-husky-simulator
+  ```
 
 ## Repository Management
 
+Below is a tree diagram showing the partition of the packages in this repository.
+
 ```bash
-src/
-   ├── combine_data/
-   ├── connect_node/
-   ├── inverse_kinematic/
-   ├── navigation/
-   ├── pointcloud_to_laserscan/
-   ├── ps3joy/
-   ├── sensors_initialization/
-   │   ├── duro_gps_driver/
-   │   ├── microstrain_inertial/
-   │   ├── sick_scan-master/
-   │   ├── sick_visionary_ros/
-   │   └── velodyne/
-   ├── simulation/
-   │   ├── cpr_gazebo/
-   │   └── my_husky_sim/
-   └── ...
+  src/
+     ├── combine_data/
+     ├── connect_node/
+     ├── inverse_kinematic/
+     ├── navigation/
+     ├── pointcloud_to_laserscan/
+     ├── ps3joy/
+     ├── sensors_initialization/
+     │   ├── duro_gps_driver/
+     │   ├── microstrain_inertial/
+     │   ├── sick_scan-master/
+     │   ├── sick_visionary_ros/
+     │   └── velodyne/
+     ├── simulation/
+     │   ├── cpr_gazebo/
+     │   └── my_husky_sim/
+     └── ...
 ```
+
+The purpose of each package is described in the table below:
+
+| Package                                                                        | Description                                                                                                      |
+| -------------------------------------------------------------------------------| ---------------------------------------------------------------------------------------------------------------- |
+| [combine_data](./src/combine_data)                                             | This package initializes the EKF filter and NavSat satellite's data transformation for robot localization in outdoor environments. |
+| [connect_node](./src/connect_node)                                             | This package sets up the connection method with the microcontroller on the robot's mobile platform, enabling communication and control data transmission to the actuators.                             |
+| [inverse_kinematic](./src/inverse_kinematic)                                   | This package provides the inverse kinematics model for a skid-steering robot, supporting motion control integration and odometry data calculation.    |
+| [pointcloud_to_laserscan](./src/pointcloud_to_laserscan)                       | [MicroStrain 3DM-GX5-AHRS](https://www.microstrain.com/inertial-sensors/3dm-gx5-25)                              |
+| [ps3joy](./src/ps3joy)                                                         | This package is responsible for establishing a connection with a PS3 joystick device, allowing users to control the robot in manual mode.             |
+| [duro_gps_driver](./src/sensors_initialization/duro_gps_driver)                | [Visionary-T](https://www.sick.com/ag/en/catalog/archive/visionary-t/c/g358152)                                  |
+| [microstrain_inertial](./src/sensors_initialization/microstrain_inertial)      | [Visionary-T](https://www.sick.com/ag/en/catalog/archive/visionary-t/c/g358152)                                  |
+| [sick_scan-master](./src/sensors_initialization/sick_scan-master)              | [Visionary-T](https://www.sick.com/ag/en/catalog/archive/visionary-t/c/g358152)                                  |
+| [sick_visionary_ros](./src/sensors_initialization/sick_visionary_ros)          | [Visionary-T](https://www.sick.com/ag/en/catalog/archive/visionary-t/c/g358152)                                  |
+| [velodyne](./src/sensors_initialization/velodyne)                              | [Visionary-T](https://www.sick.com/ag/en/catalog/archive/visionary-t/c/g358152)                                  |
+| [cpr_gazebo](./src/sensors_initialization/cpr_gazebo)                          | [Visionary-T](https://www.sick.com/ag/en/catalog/archive/visionary-t/c/g358152)                                  |
+| [my_husky_sim](./src/sensors_initialization/my_husky_sim)                      | [Visionary-T](https://www.sick.com/ag/en/catalog/archive/visionary-t/c/g358152)                                  |
+
+
+
