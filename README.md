@@ -10,7 +10,7 @@ This workspace provides the necessary ROS packages to operate the outdoor skid-s
   * [Installing Packages](#installing-packages)
 * [Repository Management](#repository-management)
 * [Run Instructions](#run-instructions)
-* [Resources](#resources)
+* [References](#references)
 
 ## Robotic Accessories
 
@@ -102,8 +102,7 @@ The purpose of each package is described in the table below:
 
 ## Run Instructions 
 
-## Resources
-
+## References
 [^1]: https://releases.ubuntu.com/18.04/
 [^2]: https://releases.ubuntu.com/focal/
 [^3]: https://wiki.ros.org/ROS/Installation
