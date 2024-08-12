@@ -103,6 +103,7 @@ The purpose of each package is described in the table below:
 ## Run Instructions 
 
 ## References
+All the references can be found here:
 [^1]: https://releases.ubuntu.com/18.04/
 [^2]: https://releases.ubuntu.com/focal/
 [^3]: https://wiki.ros.org/ROS/Installation
