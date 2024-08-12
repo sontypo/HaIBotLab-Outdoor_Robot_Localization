@@ -1,6 +1,6 @@
 ## Description
 
-This workspace provides the necessary ROS packages to operate the outdoor skid-steering robot from [Haibot Lab](https://sites.google.com/view/haibot-lab?fbclid=IwY2xjawEkHVpleHRuA2FlbQIxMAABHe2dXi4Qrxt8FIQQPHEhcPUdHKU1V9dTJYjUC7L9EI_iRUKD7Dky8Ida0Q_aem_jmdgauVqJfeysomfGbbbKQ).
+This repository provides the necessary ROS packages to operate the outdoor skid-steering robot from [Haibot Lab](https://sites.google.com/view/haibot-lab?fbclid=IwY2xjawEkHVpleHRuA2FlbQIxMAABHe2dXi4Qrxt8FIQQPHEhcPUdHKU1V9dTJYjUC7L9EI_iRUKD7Dky8Ida0Q_aem_jmdgauVqJfeysomfGbbbKQ).
 
 ## Table of Contents
 
