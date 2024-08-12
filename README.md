@@ -39,8 +39,8 @@ All the hardware equipments provided for the robot are listed in the table below
 
 ### Installing Packages
 
-* robot_localization package
-  This package is a collection of state estimation nodes, each of which is an implementation of a nonlinear state estimator for robots moving in 3D space. It contains two state estimation nodes, ekf_localization_node and ukf_localization_node. In addition, robot_localization provides navsat_transform_node, which aids in the integration of GPS data[^5].
+* `robot_localization` package
+  This package is a collection of state estimation nodes, each of which is an implementation of a nonlinear state estimator for robots moving in 3D space. It contains two state estimation nodes, `ekf_localization_node` and `ukf_localization_node`. In addition, robot_localization provides `navsat_transform_node`, which aids in the integration of GPS data[^5].
 
   To install the package:
   
@@ -49,7 +49,7 @@ All the hardware equipments provided for the robot are listed in the table below
   sudo apt install ros-noetic-robot-localization
   ```
   
-* husky_simulator
+* `husky_simulator`
   This package provides the simulation programs of Clearpath's Husky robot[^6].
 
   To install the package:
@@ -87,7 +87,7 @@ The purpose of each package is described in the table below:
 
 | Package                                                                        | Description                                                                                                      |
 | -------------------------------------------------------------------------------| ---------------------------------------------------------------------------------------------------------------- |
-| [combine_data](./src/combine_data)                                             | This package initializes the EKF filter and NavSat satellite's data transformation for robot localization in outdoor environments. |
+| [combine_data](./src/combine_data)                                             | This package initializes the `EKF` filter and `NavSat` satellite's data transformation for robot localization in outdoor environments. |
 | [connect_node](./src/connect_node)                                             | This package sets up the connection method with the microcontroller on the robot's mobile platform, enabling communication and control data transmission to the actuators. |
 | [inverse_kinematic](./src/inverse_kinematic)                                   | This package provides the inverse kinematics model for a skid-steering robot, supporting motion control integration and odometry data calculation. |
 | [pointcloud_to_laserscan](./src/pointcloud_to_laserscan)                       | This package is responsible for converting point cloud data from 3D-capable sensors into laser scan data suitable for specific tasks. |
@@ -97,8 +97,8 @@ The purpose of each package is described in the table below:
 | [sick_scan-master](./src/sensors_initialization/sick_scan-master)              | This package provides a ROS driver for initializing and acquiring data from the LiDAR sensors (NAV245). It returns the data in a format compatible with ROS, allowing users to utilize and program with it. |
 | [sick_visionary_ros](./src/sensors_initialization/sick_visionary_ros)          | This package provides a ROS driver for initializing and acquiring data from the SICK Visionary-T. It returns the data in a format compatible with ROS, allowing users to utilize and program with it. |
 | [velodyne](./src/sensors_initialization/velodyne)                              | This package provides a ROS driver for initializing and acquiring data from the Puck lidar sensor (VLP-16). It returns the data in a format compatible with ROS, allowing users to utilize and program with it. |
-| [cpr_gazebo](./src/sensors_initialization/cpr_gazebo)                          | [Visionary-T](https://www.sick.com/ag/en/catalog/archive/visionary-t/c/g358152)                                  |
-| [my_husky_sim](./src/sensors_initialization/my_husky_sim)                      | [Visionary-T](https://www.sick.com/ag/en/catalog/archive/visionary-t/c/g358152)                                  |
+| [cpr_gazebo](./src/sensors_initialization/cpr_gazebo)                          | This package provides the several number of better worlds in gazebo. |
+| [my_husky_sim](./src/sensors_initialization/my_husky_sim)                      | This package provides the user's defined simulation based on the `husky_simulator` package |
 
 ## Run Instructions 
 
